@@ -17,7 +17,8 @@ public class Sheep {
 	 */
 
 	enum Animal {
-		sheep, goat
+		//sheep, goat
+		goat, sheep
 	};
 
 	public static void main(String[] param) {
@@ -30,6 +31,7 @@ public class Sheep {
 		int delta = (int) (t1 - t0);
 
 		System.out.println("Time spent: " + delta + " ms");
+		
 	}
 
 	public static void reorder(Animal[] animals) {
@@ -67,4 +69,37 @@ public class Sheep {
 				
 
 	}
+	/**
+	 * 
+	 * @param data
+	 * @param left
+	 * @param right
+	 * @author Mohammad (Rameen) Mohammadi 
+	 * @see <a href="http://www.cs.oswego.edu/~mohammad/classes/csc241/samples/sort/Quicksort.txt"> http://www.cs.oswego.edu/~mohammad/classes/csc241/samples/sort/Quicksort.txt </a>
+	 */
+	public static void Quicksort (Animal data[],int left,int right) {
+		   int i,j;
+		   Animal mid, tmp;
+
+		   i = left;
+		   j = right;
+		   mid = data[(left + right)/2];
+		   do {
+		        while(data[i].compareTo(mid) < 0)
+		           i++;
+		       while(mid.compareTo(data[j]) < 0)
+		           j--;
+		       if (i <= j) {
+		           tmp = data[i];
+		           data[i] = data[j];
+		           data[j] = tmp;
+		           i++;
+		           j--;
+		       }
+		   } while (i <= j);
+		   if (left < j) Quicksort(data,left,j);
+		   if (i < right) Quicksort(data,i,right);
+		}
+
+	
 }

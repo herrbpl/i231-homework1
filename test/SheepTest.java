@@ -132,10 +132,11 @@ public class SheepTest {
          }
       }
       long t0 = System.currentTimeMillis();
-      Sheep.reorder (animals);
+      //Sheep.reorder (animals);
+      Sheep.Quicksort(animals, 0, animals.length-1); //(animals);
       long t1 = System.currentTimeMillis();
       int delta = (int)(t1-t0);
-     // assertTrue ("Result incorrect", check (animals, rCount));
+      assertTrue ("Result incorrect", check (animals, rCount));
       assertTrue ("Too slow: "+ delta, delta < threshold);
       System.out.println ("Time spent: " + delta + " ms");
     }
